@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using OOPOnLesson.Exeptions;
+using System.Reflection.Metadata;
 
 namespace OOPOnLesson
 {
@@ -6,27 +7,39 @@ namespace OOPOnLesson
     {
         static void Main(string[] args)
         {
-           
-            Person person = new Person();
-
-            Dog dog = new Dog();
-
-            person.Leg();
-            dog.Yugurish();
-            dog.Tishlash();
-            person.Baqirish();
+            try
+            {
+                // logic
+            } catch (Exception exc)
+            {
+                Dictionary
+                new TopilmadiExseption(exc.Message);
+            }
         }
     }
 
     public class Fruit
     {
         // public, private, internal, protected
-        public static string FruitName { get; set; }
+        public string Name { get; set; }
     }
 
     public class Meva : Fruit
     {
         public string Name { get; set;}
+        public string Davay;
+
+
+
+        public Meva()
+        {
+            
+        }
+
+        ~Meva()
+        {
+            
+        }
     }
 
     public class Document
@@ -120,12 +133,11 @@ namespace OOPOnLesson
 
 
 
-    public class Person : Dog
+    public class Person 
     {
         public void Leg()
         {
 
-            Dog dog = new Dog();
 
             Console.WriteLine("Yurib kelish");
         }
@@ -137,16 +149,19 @@ namespace OOPOnLesson
         // abstract, sealed class, oddiy class
     }
 
-    public sealed class Dog
+    public static class Dog
     {
-        public void Tishlash()
+
+
+        public static string Tishlash(this string item, string nimadur)
         {
-            Console.WriteLine("G'arch");
+            Console.WriteLine("Hayvon quturdi");
+
+            item = item.Replace("X", "Y");
+
+            return item + nimadur;
         }
 
-        public void Yugurish()
-        {
-            Console.WriteLine("dukr dukr dukr");
-        }
+
     }
 }
